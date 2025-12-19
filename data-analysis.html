@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CropGuard - Data Analysis</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="dashboard-body">
+    <nav class="navbar">
+        <div class="nav-brand">🌱 CropGuard</div>
+        <div class="nav-user">Welcome, Admin</div>
+        <button class="logout-btn" onclick="logout()">Logout</button>
+    </nav>
+    
+    <div class="dashboard-container">
+        <aside class="sidebar">
+            <ul class="nav-menu">
+                <li><a href="dashboard.html">📊 Dashboard</a></li>
+                <li><a href="data-collection.html">📈 Data Collection</a></li>
+                <li><a href="data-analysis.html" class="active">📉 Data Analysis</a></li>
+                <li><a href="operation.html">⚙️ Operation</a></li>
+                <li><a href="support.html">🆘 Support</a></li>
+            </ul>
+        </aside>
+        
+        <main class="dashboard-main">
+            <header class="page-header">
+                <h1>Data Analysis</h1>
+                <p>Visual insights into pest population trends</p>
+            </header>
+            
+            <div class="charts-grid">
+                <div class="chart-card">
+                    <h3>Pest Species Distribution</h3>
+                    <canvas id="speciesChart" width="400" height="200"></canvas>
+                </div>
+                <div class="chart-card">
+                    <h3>Last 7 Days Trend</h3>
+                    <canvas id="trendChart" width="400" height="200"></canvas>
+                </div>
+            </div>
+            
+            <div class="analysis-stats">
+                <div class="stat-card">
+                    <h4>Most Common Pest</h4>
+                    <p id="topPest">-</p>
+                </div>
+                <div class="stat-card">
+                    <h4>Total Detections</h4>
+                    <p id="totalDetections">0</p>
+                </div>
+                <div class="stat-card">
+                    <h4>Trend</h4>
+                    <p id="trendStatus">Stable</p>
+                </div>
+            </div>
+        </main>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>

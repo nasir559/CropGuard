@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CropGuard - Data Collection</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="dashboard-body">
+    <nav class="navbar">
+        <div class="nav-brand">🌱 CropGuard</div>
+        <div class="nav-user">Welcome, Admin</div>
+        <button class="logout-btn" onclick="logout()">Logout</button>
+    </nav>
+    
+    <div class="dashboard-container">
+        <aside class="sidebar">
+            <ul class="nav-menu">
+                <li><a href="dashboard.html">📊 Dashboard</a></li>
+                <li><a href="data-collection.html" class="active">📈 Data Collection</a></li>
+                <li><a href="data-analysis.html">📉 Data Analysis</a></li>
+                <li><a href="operation.html">⚙️ Operation</a></li>
+                <li><a href="support.html">🆘 Support</a></li>
+            </ul>
+        </aside>
+        
+        <main class="dashboard-main">
+            <header class="page-header">
+                <h1>Data Collection</h1>
+                <p>Monitor and manage pest detection data</p>
+            </header>
+            
+            <div class="action-buttons">
+                <button class="btn-primary" onclick="showManualInput()">➕ Add Manual Data</button>
+                <button class="btn-secondary" onclick="simulateDetection()">🎥 Simulate Auto Detection</button>
+            </div>
+            
+            <div id="manualInputForm" class="form-overlay hidden">
+                <div class="form-container">
+                    <h3>Add Pest Data</h3>
+                    <form id="pestForm">
+                        <div class="input-group">
+                            <label>Pest Species</label>
+                            <select id="pestSpecies" required>
+                                <option value="aphids">Aphids</option>
+                                <option value="caterpillars">Caterpillars</option>
+                                <option value="beetles">Beetles</option>
+                                <option value="whiteflies">Whiteflies</option>
+                                <option value="thrips">Thrips</option>
+                            </select>
+                        </div>
+                        <div class="input-group">
+                            <label>Count</label>
+                            <input type="number" id="pestCount" min="1" required>
+                        </div>
+                        <div class="input-group">
+                            <label>Field Location</label>
+                            <input type="text" id="fieldLocation" placeholder="e.g., Field A, Zone 2">
+                        </div>
+                        <div class="form-actions">
+                            <button type="submit" class="btn-primary">Save Data</button>
+                            <button type="button" class="btn-secondary" onclick="hideManualInput()">Cancel</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+            
+            <div class="table-container">
+                <table id="pestTable">
+                    <thead>
+                        <tr>
+                            <th>Date</th>
+                            <th>Species</th>
+                            <th>Count</th>
+                            <th>Location</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody></tbody>
+                </table>
+            </div>
+        </main>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>

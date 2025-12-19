@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CropGuard - Dashboard</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="dashboard-body">
+    <nav class="navbar">
+        <div class="nav-brand">🌱 CropGuard</div>
+        <div class="nav-user">Welcome, Admin</div>
+        <button class="logout-btn" onclick="logout()">Logout</button>
+    </nav>
+    
+    <div class="dashboard-container">
+        <aside class="sidebar">
+            <ul class="nav-menu">
+                <li><a href="dashboard.html" class="active">📊 Dashboard</a></li>
+                <li><a href="data-collection.html">📈 Data Collection</a></li>
+                <li><a href="data-analysis.html">📉 Data Analysis</a></li>
+                <li><a href="operation.html">⚙️ Operation</a></li>
+                <li><a href="support.html">🆘 Support</a></li>
+            </ul>
+        </aside>
+        
+        <main class="dashboard-main">
+            <header class="page-header">
+                <h1>Dashboard Overview</h1>
+                <p>Monitor your crop protection in real-time</p>
+            </header>
+            
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <div class="stat-icon">🐛</div>
+                    <div class="stat-info">
+                        <h3 id="totalPests">0</h3>
+                        <p>Total Pests Detected</p>
+                    </div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-icon">🚨</div>
+                    <div class="stat-info">
+                        <h3 id="alerts">0</h3>
+                        <p>High Risk Alerts</p>
+                    </div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-icon">📊</div>
+                    <div class="stat-info">
+                        <h3 id="avgDensity">0%</h3>
+                        <p>Avg Pest Density</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="recent-activity">
+                <h3>Recent Activity</h3>
+                <div id="recentList"></div>
+            </div>
+        </main>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>

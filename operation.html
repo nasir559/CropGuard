@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CropGuard - Operations</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="dashboard-body">
+    <nav class="navbar">
+        <div class="nav-brand">🌱 CropGuard</div>
+        <div class="nav-user">Welcome, Admin</div>
+        <button class="logout-btn" onclick="logout()">Logout</button>
+    </nav>
+    
+    <div class="dashboard-container">
+        <aside class="sidebar">
+            <ul class="nav-menu">
+                <li><a href="dashboard.html">📊 Dashboard</a></li>
+                <li><a href="data-collection.html">📈 Data Collection</a></li>
+                <li><a href="data-analysis.html">📉 Data Analysis</a></li>
+                <li><a href="operation.html" class="active">⚙️ Operation</a></li>
+                <li><a href="support.html">🆘 Support</a></li>
+            </ul>
+        </aside>
+        
+        <main class="dashboard-main">
+            <header class="page-header">
+                <h1>Operations Control</h1>
+                <p>Manage field operations and automation</p>
+            </header>
+            
+            <div class="control-grid">
+                <div class="control-card">
+                    <h3>🤖 Auto Detection</h3>
+                    <div class="status-indicator online">Online</div>
+                    <div class="control-buttons">
+                        <button class="btn-success" onclick="toggleDetection(true)">Start Detection</button>
+                        <button class="btn-danger" onclick="toggleDetection(false)">Stop Detection</button>
+                    </div>
+                </div>
+                
+                <div class="control-card">
+                    <h3>💧 Irrigation Control</h3>
+                    <div class="status-indicator offline">Offline</div>
+                    <div class="control-buttons">
+                        <button class="btn-primary" onclick="toggleIrrigation(true)">Activate</button>
+                        <button class="btn-secondary" onclick="toggleIrrigation(false)">Deactivate</button>
+                    </div>
+                </div>
+                
+                <div class="control-card">
+                    <h3>🛡️ Spraying System</h3>
+                    <div class="status-indicator ready">Ready</div>
+                    <div class="control-buttons">
+                        <button class="btn-warning" onclick="scheduleSpray()">Schedule Spray</button>
+                        <button class="btn-success" onclick="emergencySpray()">Emergency Spray</button>
+                    </div>
+                </div>
+                
+                <div class="control-card full-width">
+                    <h3>📍 Field Camera Feeds</h3>
+                    <div class="camera-grid">
+                        <div class="camera-feed" onclick="toggleCamera(this)">
+                            <div class="feed-placeholder">Field A<br>Live Feed</div>
+                            <span class="camera-status online"></span>
+                        </div>
+                        <div class="camera-feed" onclick="toggleCamera(this)">
+                            <div class="feed-placeholder">Field B<br>Live Feed</div>
+                            <span class="camera-status offline"></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
