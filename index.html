@@ -8,7 +8,8 @@
 </head>
 <body class="login-body">
     <div class="login-container">
-        <div class="login-card">
+        <!-- Login Card -->
+        <div class="login-card" id="loginCard">
             <div class="logo">
                 <h1>🌱 CropGuard</h1>
                 <p>Smart Crop Protection System</p>
@@ -24,8 +25,64 @@
                 </div>
                 <button type="submit" class="login-btn">Login</button>
             </form>
+            <div class="auth-links">
+                <a href="#" id="forgotPasswordLink" onclick="showForgotPassword()">Forgot Password?</a>
+                <a href="#" id="signupLink" onclick="showSignup()">Create New Account</a>
+            </div>
             <div class="demo-info">
                 <p><strong>Demo:</strong> admin / admin123</p>
+            </div>
+        </div>
+
+        <!-- Signup Card -->
+        <div class="login-card hidden" id="signupCard">
+            <div class="logo">
+                <h1>🌱 Sign Up</h1>
+                <p>Create your CropGuard account</p>
+            </div>
+            <form id="signupForm" class="login-form">
+                <div class="input-group">
+                    <label>Full Name</label>
+                    <input type="text" id="signupName" placeholder="Enter full name" required>
+                </div>
+                <div class="input-group">
+                    <label>Username</label>
+                    <input type="text" id="signupUsername" placeholder="Choose username" required>
+                </div>
+                <div class="input-group">
+                    <label>Email</label>
+                    <input type="email" id="signupEmail" placeholder="Enter email" required>
+                </div>
+                <div class="input-group">
+                    <label>Password</label>
+                    <input type="password" id="signupPassword" placeholder="Create password" required>
+                </div>
+                <div class="input-group">
+                    <label>Confirm Password</label>
+                    <input type="password" id="signupConfirmPassword" placeholder="Confirm password" required>
+                </div>
+                <button type="submit" class="login-btn">Create Account</button>
+            </form>
+            <div class="auth-links">
+                <a href="#" onclick="showLogin()">Back to Login</a>
+            </div>
+        </div>
+
+        <!-- Forgot Password Card -->
+        <div class="login-card hidden" id="forgotPasswordCard">
+            <div class="logo">
+                <h1>🔒 Reset Password</h1>
+                <p>Enter your username to reset password</p>
+            </div>
+            <form id="forgotPasswordForm" class="login-form">
+                <div class="input-group">
+                    <label>Username</label>
+                    <input type="text" id="resetUsername" placeholder="Enter your username" required>
+                </div>
+                <button type="submit" class="login-btn">Reset Password</button>
+            </form>
+            <div class="auth-links">
+                <a href="#" onclick="showLogin()">Back to Login</a>
             </div>
         </div>
     </div>

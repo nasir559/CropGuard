@@ -9,7 +9,7 @@
 <body class="dashboard-body">
     <nav class="navbar">
         <div class="nav-brand">🌱 CropGuard</div>
-        <div class="nav-user">Welcome, Admin</div>
+        <div class="nav-user" id="navUser">Welcome, Admin</div>
         <button class="logout-btn" onclick="logout()">Logout</button>
     </nav>
     
@@ -27,76 +27,135 @@
         <main class="dashboard-main">
             <header class="page-header">
                 <h1>Support Center</h1>
-                <p>Get help and system documentation</p>
+                <p>Get help and manage your account</p>
             </header>
             
-            <div class="support-grid">
-                <div class="support-card">
-                    <div class="support-icon">📖</div>
-                    <h3>User Manual</h3>
-                    <p>Complete documentation and guides</p>
-                    <button class="btn-primary" onclick="openManual()">View Manual</button>
+            <div class="tabs-container">
+                <div class="tabs">
+                    <button class="tab-btn active" onclick="switchTab('account')">👤 My Account</button>
+                    <button class="tab-btn" onclick="switchTab('support')">🆘 Support</button>
                 </div>
                 
-                <div class="support-card">
-                    <div class="support-icon">💬</div>
-                    <h3>Live Chat</h3>
-                    <p>24/7 technical support</p>
-                    <button class="btn-success" onclick="openChat()">Start Chat</button>
-                </div>
-                
-                <div class="support-card">
-                    <div class="support-icon">📞</div>
-                    <h3>Phone Support</h3>
-                    <p>Call our experts</p>
-                    <p class="phone-number">+880 123 456 7890</p>
-                    <button class="btn-secondary">Call Now</button>
-                </div>
-                
-                <div class="support-card full-width">
-                    <div class="support-icon large">🆘</div>
-                    <h3>Submit Ticket</h3>
-                    <form id="supportForm">
-                        <div class="input-group">
-                            <label>Subject</label>
-                            <input type="text" id="ticketSubject" placeholder="Describe your issue" required>
+                <!-- Account Tab -->
+                <div id="accountTab" class="tab-content active">
+                    <div class="account-grid">
+                        <!-- Personal Info Card -->
+                        <div class="account-card">
+                            <h3>👤 Personal Information</h3>
+                            <form id="profileForm">
+                                <div class="input-group">
+                                    <label>Full Name</label>
+                                    <input type="text" id="userName" value="Admin User" required>
+                                </div>
+                                <div class="input-group">
+                                    <label>Email</label>
+                                    <input type="email" id="userEmail" value="admin@cropguard.com" required>
+                                </div>
+                                <div class="input-group">
+                                    <label>Phone</label>
+                                    <input type="tel" id="userPhone" value="+880 123 456 7890">
+                                </div>
+                                <div class="input-group">
+                                    <label>Farm Location</label>
+                                    <input type="text" id="userFarm" value="Dhaka, Bangladesh" required>
+                                </div>
+                                <button type="submit" class="btn-primary">Update Profile</button>
+                            </form>
                         </div>
-                        <div class="input-group">
-                            <label>Priority</label>
-                            <select id="ticketPriority">
-                                <option value="low">Low</option>
-                                <option value="medium">Medium</option>
-                                <option value="high">High</option>
-                                <option value="urgent">Urgent</option>
-                            </select>
+
+                        <!-- Change Password Card -->
+                        <div class="account-card">
+                            <h3>🔐 Change Password</h3>
+                            <form id="passwordForm">
+                                <div class="input-group">
+                                    <label>Current Password</label>
+                                    <input type="password" id="currentPassword" placeholder="Enter current password" required>
+                                </div>
+                                <div class="input-group">
+                                    <label>New Password</label>
+                                    <input type="password" id="newPassword" placeholder="Enter new password" required>
+                                </div>
+                                <div class="input-group">
+                                    <label>Confirm New Password</label>
+                                    <input type="password" id="confirmNewPassword" placeholder="Confirm new password" required>
+                                </div>
+                                <button type="submit" class="btn-warning">Change Password</button>
+                            </form>
                         </div>
-                        <div class="input-group full-width">
-                            <label>Description</label>
-                            <textarea id="ticketDescription" rows="4" placeholder="Provide detailed information..."></textarea>
-                        </div>
-                        <button type="submit" class="btn-warning">Submit Ticket</button>
-                    </form>
-                </div>
-            </div>
-            
-            <div class="faq-section">
-                <h3>Frequently Asked Questions</h3>
-                <div class="faq-item">
-                    <div class="faq-question" onclick="toggleFAQ(this)">
-                        How accurate is the auto-detection?
-                        <span class="faq-toggle">+</span>
-                    </div>
-                    <div class="faq-answer hidden">
-                        Our AI model achieves 95% accuracy in identifying common crop pests under optimal conditions.
                     </div>
                 </div>
-                <div class="faq-item">
-                    <div class="faq-question" onclick="toggleFAQ(this)">
-                        What should I do if I see an unknown pest?
-                        <span class="faq-toggle">+</span>
+
+                <!-- Support Tab -->
+                <div id="supportTab" class="tab-content">
+                    <div class="support-grid">
+                        <div class="support-card">
+                            <div class="support-icon">📖</div>
+                            <h3>User Manual</h3>
+                            <p>Complete documentation and guides</p>
+                            <button class="btn-primary" onclick="openManual()">View Manual</button>
+                        </div>
+                        
+                        <div class="support-card">
+                            <div class="support-icon">💬</div>
+                            <h3>Live Chat</h3>
+                            <p>24/7 technical support</p>
+                            <button class="btn-success" onclick="openChat()">Start Chat</button>
+                        </div>
+                        
+                        <div class="support-card">
+                            <div class="support-icon">📞</div>
+                            <h3>Phone Support</h3>
+                            <p>Call our experts</p>
+                            <p class="phone-number">+880 123 456 7890</p>
+                            <button class="btn-secondary">Call Now</button>
+                        </div>
+                        
+                        <div class="support-card full-width">
+                            <div class="support-icon large">🆘</div>
+                            <h3>Submit Ticket</h3>
+                            <form id="supportForm">
+                                <div class="input-group">
+                                    <label>Subject</label>
+                                    <input type="text" id="ticketSubject" placeholder="Describe your issue" required>
+                                </div>
+                                <div class="input-group">
+                                    <label>Priority</label>
+                                    <select id="ticketPriority">
+                                        <option value="low">Low</option>
+                                        <option value="medium">Medium</option>
+                                        <option value="high">High</option>
+                                        <option value="urgent">Urgent</option>
+                                    </select>
+                                </div>
+                                <div class="input-group full-width">
+                                    <label>Description</label>
+                                    <textarea id="ticketDescription" rows="4" placeholder="Provide detailed information..."></textarea>
+                                </div>
+                                <button type="submit" class="btn-warning">Submit Ticket</button>
+                            </form>
+                        </div>
                     </div>
-                    <div class="faq-answer hidden">
-                        Use the manual data entry feature to record unknown pests and our team will analyze the images.
+                    
+                    <div class="faq-section">
+                        <h3>Frequently Asked Questions</h3>
+                        <div class="faq-item">
+                            <div class="faq-question" onclick="toggleFAQ(this)">
+                                How accurate is the auto-detection?
+                                <span class="faq-toggle">+</span>
+                            </div>
+                            <div class="faq-answer hidden">
+                                Our AI model achieves 95% accuracy in identifying common crop pests under optimal conditions.
+                            </div>
+                        </div>
+                        <div class="faq-item">
+                            <div class="faq-question" onclick="toggleFAQ(this)">
+                                What should I do if I see an unknown pest?
+                                <span class="faq-toggle">+</span>
+                            </div>
+                            <div class="faq-answer hidden">
+                                Use the manual data entry feature to record unknown pests and our team will analyze the images.
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
